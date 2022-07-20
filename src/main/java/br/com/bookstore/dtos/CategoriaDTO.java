@@ -4,14 +4,14 @@ import java.io.Serializable;
 
 import br.com.bookstore.domain.Categoria;
 
-public class CategoriaDTO implements Serializable{
+public class CategoriaDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private Integer id;
 	private String nome;
 	private String descricao;
-	
+
 	public CategoriaDTO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -47,9 +47,5 @@ public class CategoriaDTO implements Serializable{
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	
-	
-	
-	
+
 }
