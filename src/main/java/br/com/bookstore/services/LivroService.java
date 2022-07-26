@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import br.com.bookstore.domain.Categoria;
@@ -51,13 +50,8 @@ public class LivroService {
 	}
 
 	public void delete(Integer id) {
-		findById(id);
-		try {
-			repository.deleteById(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new br.com.bookstore.services.exceptions.DataIntegrityViolationException(
-					"Erro ao deletar livro!");
-		}
+		Livro obj = findById(id);
+		repository.delete(obj);
 	}
 
 }
