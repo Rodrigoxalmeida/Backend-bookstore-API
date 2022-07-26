@@ -4,15 +4,15 @@ import java.io.Serializable;
 
 import br.com.bookstore.domain.Livro;
 
-public class LivroDTO implements Serializable{
+public class LivroDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private Integer id;
 	private String titulo;
 	private String nome_autor;
 	private String texto;
-	
+
 	public LivroDTO() {
 		super();
 	}
@@ -56,11 +56,5 @@ public class LivroDTO implements Serializable{
 	public void setTexto(String texto) {
 		this.texto = texto;
 	}
-	
-	
-	
-	
-	
-	
 
 }
