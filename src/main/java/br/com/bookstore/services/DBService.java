@@ -24,12 +24,12 @@ public class DBService {
 		Categoria cat2 = new Categoria(null,"Ficção Científica", "Livros de Ficção");
 		Categoria cat3 = new Categoria(null,"Biografia", "Livros de Biografia");
 				;
-		Livro l1 = new Livro(null, "Clean Code", "Robert Martin", "Lorem ipsum", cat1);
-		Livro l2 = new Livro(null, "Engenharia de Software", "Louis V. Gerstner", "Lorem ipsum", cat1);
-		Livro l3 = new Livro(null, "The time machine", "H.G. Wells", "Lorem ipsum", cat2);
-		Livro l4 = new Livro(null, "The War of the Worlds", "H.G. Wells", "Lorem ipsum", cat2);
-		Livro l5 = new Livro(null, "I, Robot", "Isaac Asimov", "Lorem ipsum", cat2);
-		Livro l6 = new Livro(null, "O Fascinante império de Stev Jobs", "Stev Jobs", "Lorem ipsum" ,cat3);
+		Livro l1 = new Livro(null, "Clean Code", "Robert Martin", "Lorem ipsum", 79.90, cat1);
+		Livro l2 = new Livro(null, "Engenharia de Software", "Louis V. Gerstner", "Lorem ipsum", 100.00, cat1);
+		Livro l3 = new Livro(null, "The time machine", "H.G. Wells", "Lorem ipsum",20.00, cat2);
+		Livro l4 = new Livro(null, "The War of the Worlds", "H.G. Wells", "Lorem ipsum", 35.00, cat2);
+		Livro l5 = new Livro(null, "I, Robot", "Isaac Asimov", "Lorem ipsum",50.00, cat2);
+		Livro l6 = new Livro(null, "O Fascinante império de Stev Jobs", "Stev Jobs", "Lorem ipsum", 25.00, cat3);
 		
 		cat1.getLivros().addAll(Arrays.asList(l1,l2));
 		cat2.getLivros().addAll(Arrays.asList(l3,l4,l5));

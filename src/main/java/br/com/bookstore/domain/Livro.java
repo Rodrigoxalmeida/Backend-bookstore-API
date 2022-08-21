@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -30,6 +31,8 @@ public class Livro implements Serializable{
 	@NotEmpty(message="Campo NOME_AUTOR Requerido")
 	@Length(min= 3, max= 50, message="Campo NOME_AUTOR deve ter entre 3 e 50 caracteres")
 	private String nome_autor;
+	@NotNull(message="Campo PRECO_CAPA requerido")
+	private Double preco_capa;
 	@NotEmpty(message="Campo TEXTO Requerido")
 	@Length(min= 10, max= 2000000, message="Campo TEXTO deve ter entre 3 e 2.000.000 caracteres")
 	private String texto;
@@ -44,11 +47,12 @@ public class Livro implements Serializable{
 
 	}
 
-	public Livro(Integer id, String titulo, String nome_autor, String texto, Categoria categoria) {
+	public Livro(Integer id, String titulo, String nome_autor, String texto, Double preco_capa,Categoria categoria) {
 		this.id = id;
 		this.titulo = titulo;
 		this.nome_autor = nome_autor;
 		this.texto = texto;
+		this.preco_capa = preco_capa;
 		this.categoria = categoria;
 	}
 
@@ -74,6 +78,14 @@ public class Livro implements Serializable{
 
 	public void setNome_autor(String nome_autor) {
 		this.nome_autor = nome_autor;
+	}
+	
+	public Double getPreco_capa() {
+		return preco_capa;
+	}
+
+	public void setPreco_capa(Double preco_capa) {
+		this.preco_capa = preco_capa;
 	}
 
 	public String getTexto() {

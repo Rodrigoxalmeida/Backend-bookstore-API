@@ -11,6 +11,7 @@ public class LivroDTO implements Serializable {
 	private Integer id;
 	private String titulo;
 	private String nome_autor;
+	private Double preco_capa;
 	private String texto;
 
 	public LivroDTO() {
@@ -23,6 +24,7 @@ public class LivroDTO implements Serializable {
 		this.titulo = obj.getTitulo();
 		this.nome_autor = obj.getNome_autor();
 		this.texto = obj.getTexto();
+		this.preco_capa = obj.getPreco_capa();
 	}
 
 	public Integer getId() {
@@ -47,6 +49,14 @@ public class LivroDTO implements Serializable {
 
 	public void setNome_autor(String nome_autor) {
 		this.nome_autor = nome_autor;
+	}
+	
+	public Double getPreco_capa() {
+		return preco_capa;
+	}
+
+	public void setPreco_capa(Double preco_capa) {
+		this.preco_capa = preco_capa;
 	}
 
 	public String getTexto() {
