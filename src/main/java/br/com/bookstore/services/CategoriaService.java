@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.bookstore.domain.Categoria;
 import br.com.bookstore.dtos.CategoriaDTO;
@@ -17,30 +18,31 @@ public class CategoriaService {
 
 	@Autowired
 	private CategoriaRepository repository;
-
+	
+	@Transactional(readOnly = true)
 	public Categoria findById(Integer id) {
 		Optional<Categoria> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! ID: " + id + " TIPO: " + Categoria.class.getName()));
 	}
-
+	@Transactional(readOnly = true)
 	public List<Categoria> findAll() {
 		return repository.findAll();
 	}
-
+	@Transactional
 	public Categoria create(Categoria obj) {
 		obj.setId(null);
 		return repository.save(obj);
 	}
-
+	@Transactional
 	public Categoria update(Integer id, CategoriaDTO objDTO) {
-		Categoria obj = findById(id);
+		Categoria obj = repository.getReferenceById(id);
 		obj.setNome(objDTO.getNome());
 		obj.setDescricao(objDTO.getDescricao());
 		return repository.save(obj);
 
 	}
-
+	
 	public void delete(Integer id) {
 		findById(id);
 		try {
